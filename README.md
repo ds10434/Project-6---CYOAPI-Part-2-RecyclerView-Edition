@@ -2,15 +2,15 @@
 
 # AND101 Project 5 - Choose Your Own API
 
-Submitted by: **Your Name Here**
+Submitted by: **Damian Senquiz**
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Summary
 
-**Name of your app** is an android app that **fill in description (Example: "An app that displays a random character from the Game of Thrones API")**
+**RAWG Game Generator** is an android app that **Displays a Random Game**
 
-If I had to describe this project in three (3) emojis, they would be: **emojis here**
+If I had to describe this project in three (3) emojis, they would be: **🎮👾🕹️**
 
 ## Application Features
 
@@ -18,9 +18,9 @@ If I had to describe this project in three (3) emojis, they would be: **emojis h
 
 The following REQUIRED features are completed:
 
-- [ ] Make an API call to an API of your choice using AsyncHTTPClient
-- [ ] Display at least three (3) pieces of data for each API entry retrieved
-- [ ] A working Button requests a new API entry and updates the data displayed
+- [X] Make an API call to an API of your choice using AsyncHTTPClient
+- [X] Display at least three (3) pieces of data for each API entry retrieved
+- [X] A working Button requests a new API entry and updates the data displayed
 
 The following STRETCH features are implemented:
 
@@ -34,20 +34,18 @@ The following EXTRA features are implemented:
 
 ## API Choice
 
-My chosen API for this project is **enter here**.
+My chosen API for this project is **RAWG**.
 
 ## Video Demo
 
 Here's a video / GIF that demos all of the app's implemented features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Demo' width='' alt='Video Demo' />
 
-GIF created with **your chosen GIF tool**
+<img width="632" height="1242" alt="RAWG" src="https://github.com/user-attachments/assets/87233c19-eed6-47d3-a031-d7be0991a1a7" />
 
-<!-- Recommended tools:
-- [Kap](https://getkap.co/) for macOS
-- [ScreenToGif](https://www.screentogif.com/) for Windows
-- [peek](https://github.com/phw/peek) for Linux. -->
+
+GIF created with **Snipping Tool**
+
 
 ## Notes
 
@@ -55,7 +53,7 @@ Here's a place for any other notes on the app, it's creation process, or what yo
 
 ## License
 
-Copyright **yyyy** **your name**
+Copyright **2026** **Damian Senquiz**
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
