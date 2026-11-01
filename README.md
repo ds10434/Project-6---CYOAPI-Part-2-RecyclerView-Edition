@@ -1,16 +1,16 @@
 <!-- (This is a comment) INSTRUCTIONS: Go through this page and fill out any **bolded** entries with their correct values.-->
 
-# AND101 Project 5 - Choose Your Own API
+# AND101 Project 6 - CYOAPI Part 2: RecyclerView Edition
 
 Submitted by: **Damian Senquiz**
 
-Time spent: **3** hours spent in total
+Time spent: **1.5** hours spent in total
 
 ## Summary
 
-**RAWG Game Generator** is an android app that **Displays a Random Game**
+**RAWG API RecyclerView Edition** is an android app that **Randomly Generates games**
 
-If I had to describe this project in three (3) emojis, they would be: **🎮👾🕹️**
+If I had to describe this project in three (3) emojis, they would be: **🤔💅🐾**
 
 ## Application Features
 
@@ -18,34 +18,33 @@ If I had to describe this project in three (3) emojis, they would be: **🎮👾
 
 The following REQUIRED features are completed:
 
-- [X] Make an API call to an API of your choice using AsyncHTTPClient
-- [X] Display at least three (3) pieces of data for each API entry retrieved
-- [X] A working Button requests a new API entry and updates the data displayed
+- [x] Make an API call to an API of your choice using AsyncHTTPClient
+- [x] Implement a RecyclerView to display a list of entries from the API
+- [x] Display at least three (3) pieces of data for each RecyclerView item
 
 The following STRETCH features are implemented:
 
-- [ ] Add a query to the API request
-  - The query I added is **FILL IN HERE**
-- [ ] Build a UI to allow users to add that query
+- [ ] Add a UI element for the user to interact with API further
+- [ ] Show a `Toast` or `Snackbar` when an item is clicked
+- [ ] Add item dividers with `DividerItemDecoration`
 
 The following EXTRA features are implemented:
 
 - [ ] List anything else that you added to improve the app!
 
-## API Choice
-
-My chosen API for this project is **RAWG**.
-
 ## Video Demo
 
 Here's a video / GIF that demos all of the app's implemented features:
 
-
-<img width="632" height="1242" alt="RAWG" src="https://github.com/user-attachments/assets/87233c19-eed6-47d3-a031-d7be0991a1a7" />
+<img width="598" height="1238" alt="RAWG" src="https://github.com/user-attachments/assets/f534bce5-ff2e-40f2-96eb-e28f813b9da8" />
 
 
 GIF created with **Snipping Tool**
 
+<!-- Recommended tools:
+- [Kap](https://getkap.co/) for macOS
+- [ScreenToGif](https://www.screentogif.com/) for Windows
+- [peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
 
