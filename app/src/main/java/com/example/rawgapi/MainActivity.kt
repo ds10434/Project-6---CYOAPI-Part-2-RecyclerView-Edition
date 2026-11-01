@@ -1,23 +1,19 @@
 package com.example.rawgapi
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var gameImageView: ImageView
-    private lateinit var gameTitleTextView: TextView
-    private lateinit var gameReleaseTextView: TextView
-    private lateinit var gameRatingTextView: TextView
-    private lateinit var fetchGameButton: Button
+    private lateinit var gamesRecyclerView: RecyclerView
+    private val gamesList = mutableListOf<Game>()
+    private lateinit var adapter: GameAdapter
 
     private val apiKey = "e778174c365b4ab1924f343630ec03f0"
 
@@ -25,44 +21,33 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        gameImageView = findViewById(R.id.gameImageView)
-        gameTitleTextView = findViewById(R.id.gameTitleTextView)
-        gameReleaseTextView = findViewById(R.id.gameReleaseTextView)
-        gameRatingTextView = findViewById(R.id.gameRatingTextView)
-        fetchGameButton = findViewById(R.id.fetchGameButton)
+        gamesRecyclerView = findViewById(R.id.gamesRecyclerView)
+        adapter = GameAdapter(gamesList)
+        gamesRecyclerView.adapter = adapter
+        gamesRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        fetchGameButton.setOnClickListener {
-            fetchRandomGame()
-        }
-
-        fetchRandomGame()
+        fetchGames()
     }
 
-    private fun fetchRandomGame() {
+    private fun fetchGames() {
         val client = AsyncHttpClient()
-        val randomPage = Random.nextInt(1, 31)
-        val url = "https://api.rawg.io/api/games?key=$apiKey&page=$randomPage"
+        val url = "https://api.rawg.io/api/games?key=$apiKey"
 
         client.get(url, object : JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
                 val resultsArray = json.jsonObject.getJSONArray("results")
-                if (resultsArray.length() > 0) {
-                    val randomIndex = Random.nextInt(resultsArray.length())
-                    val game = resultsArray.getJSONObject(randomIndex)
+                for (i in 0 until resultsArray.length()) {
+                    val gameJson = resultsArray.getJSONObject(i)
 
-                    val title = game.getString("name")
-                    val released = game.getString("released")
-                    val rating = game.getDouble("rating")
-                    val imageUrl = game.getString("background_image")
+                    val title = gameJson.optString("name", "Unknown Title")
+                    val released = gameJson.optString("released", "N/A")
+                    val rating = gameJson.optDouble("rating", 0.0)
+                    val imageUrl = gameJson.optString("background_image", "")
 
-                    gameTitleTextView.text = title
-                    gameReleaseTextView.text = "Release Date: $released"
-                    gameRatingTextView.text = "Rating: $rating / 5"
-
-                    Glide.with(this@MainActivity)
-                        .load(imageUrl)
-                        .into(gameImageView)
+                    val game = Game(title, released, rating, imageUrl)
+                    gamesList.add(game)
                 }
+                adapter.notifyDataSetChanged()
             }
 
             override fun onFailure(
@@ -71,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                 errorResponse: String,
                 throwable: Throwable?
             ) {
+                Toast.makeText(this@MainActivity, "Failed to load games", Toast.LENGTH_SHORT).show()
             }
         })
     }
